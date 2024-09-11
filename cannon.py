@@ -66,14 +66,14 @@ def move():
 
     for target in dupe:
         if abs(target - ball) > 13:
+            # Reposicionar el target si sale de la pantalla por la izquierda
+            if not inside(target):
+                target.x = 200  # Lo reposicionamos al borde derecho
             targets.append(target)
 
     draw()
 
-    for target in targets:
-        if not inside(target):
-            return
-
+    # Mantener el juego en movimiento
     ontimer(move, 50)
 
 
